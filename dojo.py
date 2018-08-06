@@ -8,3 +8,4 @@ def index():
 @app.route('/result', methods=['POST'])
 def result():
     return render_template('result.html')
+app.run(debug=True)
