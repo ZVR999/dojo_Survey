@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Index</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
 </head>
+
 <body>
-    
+    <form action="">
+        <div class="left">
+            Your Name:
+            <br> Dojo Location:
+            <br>
+            <label for="favorite_language">Favorite Language</label>
+        </div>
+        <div class="right">
+            <input type="text" name="your_name">
+            <br>
+            <label for="dojo_location"></label>
+            <select name="dojo_location" id="dojo_location">
+                <option value="san_jose">San Jose</option>
+            </select>
+            <br>
+            <select name="favorite_language" id="favorite_language">
+                <option value="python">Python</option>
+            </select>
+        </div>
+        <label for="comment">Comment (optional):</label>
+        <textarea name="comment" id="comment" cols="80" rows="10"></textarea>
+        <input type="submit" value="Submit">
+    </form>
 </body>
+
 </html>
