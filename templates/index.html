@@ -6,30 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Index</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
 </head>
 
 <body>
-    <form action="">
-        <div class="left">
-            Your Name:
-            <br> Dojo Location:
-            <br>
-            <label for="favorite_language">Favorite Language</label>
-        </div>
-        <div class="right">
-            <input type="text" name="your_name">
-            <br>
-            <label for="dojo_location"></label>
-            <select name="dojo_location" id="dojo_location">
-                <option value="san_jose">San Jose</option>
-            </select>
-            <br>
-            <select name="favorite_language" id="favorite_language">
-                <option value="python">Python</option>
-            </select>
-        </div>
-        <label for="comment">Comment (optional):</label>
+    <form action="/result" method="POST">
+        <label for="your_name">Your Name:</label>
+        <input type="text" name="your_name"><br>
+        <label for="dojo_location">Dojo Location:</label>
+        <select name="dojo_location" id="dojo_location">
+            <option value="San Jose">San Jose</option>
+        </select><br>
+        <label for="favorite_language">Favorite Language:</label>
+        <select name="favorite_language" id="favorite_language">
+            <option value="Python">Python</option>
+        </select><br>
+        <label for="comment">Comment (optional):</label><br>
         <textarea name="comment" id="comment" cols="80" rows="10"></textarea>
         <input type="submit" value="Submit">
     </form>
