@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session, flash
 app = Flask(__name__)
+app.secret_key = '1ond1n13!@#R$1n22cncqcasn23#$scscas'
 
 @app.route('/')
 def index():
@@ -7,11 +8,25 @@ def index():
 
 @app.route('/result', methods=['POST'])
 def result():
-    your_name = request.form['your_name']
-    dojo_location = request.form['dojo_location']
-    fav_language = request.form['favorite_language']
-    your_comment = request.form['comment']
-    print your_name, dojo_location, fav_language, your_comment
-    return render_template('result.html', name=your_name, location=dojo_location,
-    language=fav_language, comment=your_comment)
+    session['name'] = request.form['your_name']
+    session['location'] = request.form['dojo_location']
+    session['language'] = request.form['favorite_language']
+    session['comment'] = request.form['comment']
+    
+    if session['name'] == '':
+        flash('Your Name: Can not be blank')
+        return redirect('/')
+    elif session['location'] == '':
+        flash('Dojo Location: Can not be blank')
+        return redirect('/')
+    elif session['language'] == '':
+        flash('Favorite Language: Can not be blank')
+        return redirect('/')
+    elif len(session['comment']) > 120:
+        flash('Comment field can not exceed 120 characters') 
+        return redirect('/')
+
+    return render_template('result.html')
+
+
 app.run(debug=True)

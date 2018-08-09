@@ -10,10 +10,10 @@
 <body>
     <h1>Submitted Info</h1>
     <div>
-        Name: {{ name }} <br>
-        Dojo Location: {{ location }} <br>
-        Favorite Language: {{ language }} <br>
-        Comment: {{ comment }}
+        Name: {{ session['name'] }} <br>
+        Dojo Location: {{ session['location'] }} <br>
+        Favorite Language: {{ session['language'] }} <br>
+        Comment: {{ session['comment'] }}
     </div>
     <a href="/"><button>Go Back</button></a>
 </body>

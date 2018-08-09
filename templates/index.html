@@ -24,6 +24,13 @@
         <label for="comment">Comment (optional):</label><br>
         <textarea name="comment" id="comment" cols="80" rows="10"></textarea>
         <input type="submit" value="Submit">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
     </form>
 </body>
 
